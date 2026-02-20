@@ -1,1 +1,462 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="bc">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Danchi Life</title>
+  <meta name="description" content="Travel · Life · Thoughts" />
 
+  <style>
+    :root{
+      /* B + C 融合：日系柔灰 + 雜誌感標題（不載外部字體） */
+      --bg:#f6f6f4;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --shadow: 0 14px 40px rgba(31,41,55,.10);
+      --radius:18px;
+      --max: 980px;
+
+      --sans: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+      --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Noto Serif TC", serif;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:34px 18px 80px;}
+
+    /* Top bar */
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width: 220px;
+    }
+    .brand .name{
+      font-weight:700;
+      letter-spacing:.2px;
+      font-size:16px;
+    }
+    .brand .tag{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+    }
+    .nav a:hover{background:#fff; text-decoration:none}
+
+    /* Hero */
+    .hero{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 26px 22px;
+      overflow:hidden;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .heroGrid{grid-template-columns:1fr}
+      .nav{justify-content:flex-start}
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-family: var(--serif);
+      font-weight:700;
+      letter-spacing:-0.5px;
+      line-height:1.12;
+      font-size:44px;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      max-width: 60ch;
+    }
+    .heroMeta{
+      margin-top:14px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      border-radius:999px;
+      padding:5px 10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* Search (lightweight) */
+    .search{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:10px 12px;
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:0;
+      font-size:14px;
+      font-family: var(--sans);
+    }
+    .search .k{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:2px 8px;
+      background: rgba(17,24,39,.02);
+      white-space:nowrap;
+    }
+
+    /* Section headers */
+    .section{
+      margin-top:22px;
+    }
+    .sectionHead{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin: 18px 2px 10px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-family: var(--serif);
+      font-size:18px;
+      letter-spacing:-0.2px;
+    }
+    .sectionHead .hint{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width: 560px){ .grid{grid-template-columns:1fr;} }
+
+    .card{
+      display:block;
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(31,41,55,.06);
+      overflow:hidden;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(31,41,55,.10);
+      text-decoration:none;
+    }
+
+    .thumb{
+      width:100%;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, rgba(31,41,55,.06), rgba(31,41,55,.02));
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .body{
+      padding: 14px 14px 16px;
+    }
+    .meta{
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:2px 8px;
+      background: rgba(17,24,39,.02);
+    }
+    .title{
+      margin:8px 0 6px;
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:-0.2px;
+    }
+    .desc{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .footLinks{display:flex; gap:10px; flex-wrap:wrap;}
+    .footLinks a{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      background: rgba(255,255,255,.85);
+    }
+    .footLinks a:hover{text-decoration:none;background:#fff}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="name">Danchi Life</div>
+        <div class="tag">Travel · Life · Thoughts</div>
+      </div>
+
+      <nav class="nav" aria-label="site">
+        <a href="#travel">Travel</a>
+        <a href="#life">Life</a>
+        <a href="#thoughts">Thoughts</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="heroGrid">
+        <div>
+          <h1>Quiet notes,<br/>beautifully kept.</h1>
+          <p class="lead">中英混合、極簡但耐看。內容用分類整理，照片用 lazy-load，放很多也不會拖慢。</p>
+
+          <div class="search" role="search" aria-label="search posts">
+            <input id="q" type="search" placeholder="Search (title / city / tag) …" autocomplete="off" />
+            <span class="k">⌘K</span>
+          </div>
+
+          <div class="heroMeta">
+            <span class="chip">Fast</span>
+            <span class="chip">Simple</span>
+            <span class="chip">Photo-friendly</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="sectionHead" style="margin-top:0">
+            <h2>Latest</h2>
+            <div class="hint"><span id="count">0 posts</span></div>
+          </div>
+
+          <a class="card" href="/posts/welcome.html">
+            <div class="thumb"></div>
+            <div class="body">
+              <div class="meta"><span class="pill">Life</span><span>2026-02-20</span></div>
+              <div class="title">Welcome to Danchi Life</div>
+              <p class="desc">第一篇：網站定位、分類方式、照片規格（快速、耐用、不越來越慢）。</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAVEL -->
+    <section class="section" id="travel">
+      <div class="sectionHead">
+        <h2>Travel</h2>
+        <div class="hint">city / country / year</div>
+      </div>
+
+      <div class="grid" id="travelList">
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Italy</span><span>Rome</span><span>2025</span></div>
+            <div class="title">Rome — One-day walk</div>
+            <p class="desc">路線、交通、咖啡、拍照點，全部整理成一頁好找的筆記。</p>
+          </div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Germany</span><span>Munich</span><span>2025</span></div>
+            <div class="title">Oktoberfest starter kit</div>
+            <p class="desc">第一次去不踩雷：排隊、帳篷、住宿位置、行程節奏。</p>
+          </div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Japan</span><span>Tokyo</span><span>2026</span></div>
+            <div class="title">Tokyo — food list</div>
+            <p class="desc">會回訪的小店清單：壽司、咖啡、甜點，直接收藏。</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- LIFE -->
+    <section class="section" id="life">
+      <div class="sectionHead">
+        <h2>Life</h2>
+        <div class="hint">weekly / photo diary / home</div>
+      </div>
+
+      <div class="grid" id="lifeList">
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Photo</span><span>Weekly</span></div>
+            <div class="title">This week in photos</div>
+            <p class="desc">少文字、多照片。每週一篇，久了也不會慢。</p>
+          </div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Home</span><span>Notes</span></div>
+            <div class="title">A calm system</div>
+            <p class="desc">不追求完美，只追求「容易維持」。</p>
+          </div>
+        </a>
+
+        <a class="card" href="/about.html">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Links</span><span>IG / YouTube</span></div>
+            <div class="title">About & Social</div>
+            <p class="desc">放社群連結（不嵌 iframe）最乾淨也最快。</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- THOUGHTS -->
+    <section class="section" id="thoughts">
+      <div class="sectionHead">
+        <h2>Thoughts</h2>
+        <div class="hint">short essays / notes</div>
+      </div>
+
+      <div class="grid" id="thoughtsList">
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Essay</span><span>5 min</span></div>
+            <div class="title">Keeping things slow</div>
+            <p class="desc">把注意力收回來，世界就變清楚了。</p>
+          </div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Reading</span><span>Notes</span></div>
+            <div class="title">Reading notes</div>
+            <p class="desc">把困難段落用自己的話重寫一次，才是真的懂。</p>
+          </div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta"><span class="pill">Tech</span><span>Light</span></div>
+            <div class="title">Gear & workflow</div>
+            <p class="desc">只寫「真的有用」的設定，不堆外掛不變慢。</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Danchi Life</div>
+      <div class="footLinks">
+        <a href="/about.html">About</a>
+        <a href="#travel">Travel</a>
+        <a href="#life">Life</a>
+        <a href="#thoughts">Thoughts</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // 年份
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // 假裝有「文章數」：先用卡片數量估算（之後你要做自動文章清單我再升級）
+    const cards = document.querySelectorAll('.card').length;
+    document.getElementById('count').textContent = cards + " items";
+
+    // ⌘K 聚焦搜尋（目前只是 UI；下一步我可以做真正的站內搜尋）
+    const q = document.getElementById('q');
+    window.addEventListener('keydown', (e)=>{
+      if((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){
+        e.preventDefault();
+        q.focus();
+      }
+    });
+  </script>
+</body>
+</html>
