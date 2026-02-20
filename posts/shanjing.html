@@ -41,6 +41,14 @@ p{
   margin-bottom:24px;
 }
 
+/* 圖片置左的容器 */
+.image-left{
+  float:left;
+  margin-right:24px;
+  margin-bottom:24px;
+  max-width:300px;
+}
+
 /* 圖片（固定高度上限，不會太高） */
 .wrap img{
   display:block;
@@ -48,13 +56,20 @@ p{
   height:auto;
   max-height:520px;   /* 關鍵：限制高度 */
   border-radius:16px;
-  margin:30px auto;
+}
+
+/* 清除浮動 */
+.clearfix::after{
+  content:"";
+  display:table;
+  clear:both;
 }
 
 /* 返回 */
 .back{
   margin-top:60px;
   font-size:14px;
+  clear:both;
 }
 
 a{
@@ -75,11 +90,15 @@ a{
 大年初三的晚上，嘴饞的我們臨時想吃燒肉。
 </p>
 
-<p>
-打遍了台中幾乎每一家還有開的燒肉店，最後甚至一連吃了兩家。
-</p>
+<div class="clearfix">
+  <div class="image-left">
+    <img src="/image/2026-02-shanjing/01.jpg" alt="山鯨本家燒肉">
+  </div>
 
-<img src="/image/2026-02-shanjing/01.jpg" alt="山鯨本家燒肉">
+  <p>
+  打遍了台中幾乎每一家還有開的燒肉店，最後甚至一連吃了兩家。
+  </p>
+</div>
 
 <div class="back">
 <a href="/">← Back to Home</a>
