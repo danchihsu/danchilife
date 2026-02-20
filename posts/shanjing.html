@@ -41,13 +41,14 @@ p{
   margin-bottom:24px;
 }
 
-/* 圖片設定（重點） */
+/* 圖片（固定高度上限，不會太高） */
 .wrap img{
-  width:100%;
-  max-height:75vh;     /* 限制最大高度 */
-  object-fit:cover;    /* 裁切保持比例 */
+  display:block;
+  max-width:100%;
+  height:auto;
+  max-height:520px;   /* 關鍵：限制高度 */
   border-radius:16px;
-  margin:30px 0;
+  margin:30px auto;
 }
 
 /* 返回 */
@@ -78,7 +79,7 @@ a{
 打遍了台中幾乎每一家還有開的燒肉店，最後甚至一連吃了兩家。
 </p>
 
-<img src="/image/2026-02-shanjing/01.jpg">
+<img src="/image/2026-02-shanjing/01.jpg" alt="山鯨本家燒肉">
 
 <div class="back">
 <a href="/">← Back to Home</a>
