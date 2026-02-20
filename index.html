@@ -93,9 +93,29 @@
       align-items:start;
     }
     @media (max-width: 860px){
-      .heroGrid{grid-template-columns:1fr}
-      .nav{justify-content:flex-start}
-    }
+
+  .top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+
+  .nav{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+    width:100%;
+  }
+
+  .nav a{
+    text-align:center;
+  }
+
+  .heroGrid{
+    grid-template-columns:1fr;
+  }
+
+}
 
     h1{
       margin:0 0 10px;
