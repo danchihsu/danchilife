@@ -1,13 +1,160 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="date" content="2026-02-18">
-    <title>Shanjing</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>文章標題｜Danchi Life</title>
+
+  <style>
+    :root{
+      --bg:#fbfaf7;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --max:720px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      line-height:1.8;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 18px 60px;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    h1{
+      font-size:28px;
+      line-height:1.25;
+      margin:12px 0 14px;
+    }
+
+    .tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:12px 0 20px;
+    }
+
+    .tag{
+      font-size:12px;
+      border:1px solid var(--line);
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.6);
+    }
+
+    article{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+    }
+
+    p{
+      font-size:16px;
+      margin:14px 0;
+    }
+
+    .gallery{
+      display:grid;
+      gap:12px;
+      margin:18px 0;
+    }
+
+    figure{margin:0}
+
+    img{
+      width:100%;
+      height:auto;
+      border-radius:14px;
+      border:1px solid var(--line);
+      display:block;
+      background:#f3f4f6;
+    }
+
+    figcaption{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:8px;
+    }
+
+    .back{
+      display:inline-block;
+      margin-top:18px;
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    .back:hover{
+      text-decoration:underline;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Welcome to Shanjing</h1>
-    <p>This is the updated post content.</p>
+  <div class="wrap">
+
+    <!-- 分類 / 日期 / 地區 -->
+    <div class="meta">
+      <span>Food</span><span>·</span>
+      <time datetime="2026-02-20">2026-02-20</time>
+      <span>·</span>
+      <span>Linkou</span>
+    </div>
+
+    <!-- 文章標題 -->
+    <h1>THE BBQ HOUSE｜林口三井</h1>
+
+    <!-- 標籤 -->
+    <div class="tags">
+      <span class="tag">燒肉</span>
+      <span class="tag">林口</span>
+    </div>
+
+    <article>
+
+      <p>沙拉的肉有碳烤味道，醬汁味道不錯。</p>
+      <p>蔬菜牛肉湯裡有四塊軟嫩牛肉，但湯頭偏鹹。</p>
+
+      <!-- 圖片區 -->
+      <div class="gallery">
+        <figure>
+          <img src="/images/2026-02-the-bbq-house/01.jpg"
+               loading="lazy"
+               alt="THE BBQ HOUSE 照片 1">
+          <figcaption>（可填說明）</figcaption>
+        </figure>
+
+        <figure>
+          <img src="/images/2026-02-the-bbq-house/02.jpg"
+               loading="lazy"
+               alt="THE BBQ HOUSE 照片 2">
+        </figure>
+      </div>
+
+    </article>
+
+    <a class="back" href="/">← Back to Home</a>
+
+  </div>
 </body>
 </html>
