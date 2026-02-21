@@ -94,6 +94,38 @@
   grid-template-columns:1fr 1fr;
 }
 
+ /* 三張圖排版：左大右上下 */
+.gallery.three {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 18px;
+  margin: 24px 0 28px;
+}
+
+.gallery.three figure:nth-child(1) {
+  grid-row: 1 / span 2; /* 左邊圖佔兩行 */
+}
+
+.gallery.three img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* 手機版變成直排 */
+@media (max-width: 768px) {
+  .gallery.three {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery.three figure:nth-child(1) {
+    grid-row: auto;
+  }
+}   
+
 @media (max-width:768px){
   .gallery.two{
     grid-template-columns:1fr;
@@ -186,13 +218,20 @@
 
       <p>蔬菜牛肉湯裡有四塊牛肉，口感軟嫩，但湯頭偏鹹。</p>
       
-<div class="gallery two">
+<div class="gallery three">
+
   <figure>
     <img src="../image/2026-02-20-bbq-house-linkou/06.jpeg" loading="lazy" alt="">
   </figure>
+
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/07.jpeg" loading="lazy" alt="">
+  </figure>
+
   <figure>
     <img src="../image/2026-02-20-bbq-house-linkou/08.jpeg" loading="lazy" alt="">
   </figure>
+
 </div>
 
 
