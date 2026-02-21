@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- 改這裡 -->
+  <title>蜜月自助旅｜義大利羅馬｜Danchi Life</title>
+
+  <style>
+    :root{
+      --bg:#faf9f6;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --max:720px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.8;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 80px;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    h1{
+      font-size:30px;
+      line-height:1.25;
+      margin:12px 0 14px;
+      letter-spacing:-0.2px;
+    }
+
+    .tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:12px 0 20px;
+    }
+
+    .tag{
+      font-size:12px;
+      border:1px solid var(--line);
+      padding:4px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.7);
+    }
+
+    article{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 10px 28px rgba(0,0,0,.04);
+    }
+
+    p{
+      font-size:16px;
+      line-height:1.9;
+      margin:22px 0;
+    }
+
+    hr{
+      border:0;
+      border-top:1px solid var(--line);
+      margin:24px 0;
+    }
+
+    .gallery{
+  display:grid;
+  gap:18px;
+  margin:24px 0 28px;
+}
+
+.gallery.two{
+  grid-template-columns:1fr 1fr;
+}
+
+ /* 三張圖排版：左大右上下 */
+.gallery.three {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 18px;
+  margin: 24px 0 28px;
+}
+
+.gallery.three figure:nth-child(1) {
+  grid-row: 1 / span 2; /* 左邊圖佔兩行 */
+}
+
+.gallery.three img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* 手機版變成直排 */
+@media (max-width: 768px) {
+  .gallery.three {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery.three figure:nth-child(1) {
+    grid-row: auto;
+  }
+}   
+
+@media (max-width:768px){
+  .gallery.two{
+    grid-template-columns:1fr;
+  }
+}
+
+    .stars {
+  color: #f5b301;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+    
+    figure{margin:0}
+
+    img{
+      width:100%;
+      height:auto;
+      border-radius:16px;
+      border:1px solid var(--line);
+      display:block;
+      background:#f3f4f6;
+    }
+
+    figcaption{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:8px;
+    }
+
+    .back{
+      display:inline-block;
+      margin-top:24px;
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    .back:hover{
+      text-decoration:underline;
+    }
+
+    @media (max-width:600px){
+      h1{font-size:26px}
+      article{padding:18px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- 改這裡 -->
+    <div class="meta">
+      <span>Food</span><span>·</span>
+      <time datetime="2026-02-20">2026-02-20</time>
+      <span>·</span>
+      <span>Linkou</span>
+    </div>
+
+    <!-- 改這裡 -->
+    <h1>THE BBQ HOUSE｜林口三井</h1>
+
+    <!-- 改這裡 -->
+    <div class="tags">
+      <span class="tag">燒肉</span>
+      <span class="tag">林口</span>
+      <span class="tag">三井</span>
+    </div>
+
+    <article>
+
+      <!-- 文章內文開始 -->
+
+      <p>這次來到林口三井二期的 THE BBQ HOUSE。</p>
+      
+<div class="gallery two">
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/01.jpeg" loading="lazy" alt="">
+  </figure>
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/02.jpeg" loading="lazy" alt="">
+  </figure>
+</div>
+
+      <p>主餐點了12oz肋眼牛排，和牛菌菇雞胸義大利麵(後來主廚說雞胸沒了幫我們改雞腿)，再搭配一份A套餐，包含蔬菜牛肉清湯、牛肉沙拉、可樂和布朗尼香草冰淇淋。</p>
+<div class="gallery two">
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/04.jpeg" loading="lazy" alt="">
+  </figure>
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/05.jpeg" loading="lazy" alt="">
+  </figure>
+</div>
+      <p>沙拉裡的肉帶有碳烤香氣，醬汁味道不錯。</p>
+
+      <p>蔬菜牛肉湯裡有四塊牛肉，份量十足口感軟嫩，但湯頭稍偏鹹。</p>
+      
+<div class="gallery three">
+
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/06.jpeg" loading="lazy" alt="">
+  </figure>
+
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/07.jpeg" loading="lazy" alt="">
+  </figure>
+
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/08.jpeg" loading="lazy" alt="">
+  </figure>
+
+</div>
+
+
+      
+      <hr>
+
+      <p><strong>店家資訊</strong></p>
+
+      <p>地點：林口三井 OUTLET二期 3樓</p>
+      <p>停車：商場附設停車場可折抵</p>
+      <p>刷卡：可刷卡</p>
+      <p>回訪意願：★★★★★</p>
+
+      <!-- 圖片區 -->
+      <div class="gallery">
+
+        <!-- 只改資料夾名稱與檔名 -->
+        <figure>
+          <img src="../image/2026-02-20-bbq-house-linkou/09.jpeg"
+               loading="lazy"
+               alt="THE BBQ HOUSE 照片 1" />
+          <figcaption>（牛菌菇雞腿義大利麵）</figcaption>
+        </figure>
+
+      <p>麵條與雞肉都有入味，牛菌菇的香味十足，雞腿皮烤的恰恰好，很喜歡。</p>
+
+      
+      
+        <figure>
+          <img src="../image/2026-02-20-bbq-house-linkou/10.jpeg"
+               loading="lazy"
+               alt="THE BBQ HOUSE 照片 2" />
+          <figcaption>（Choice美國厚切肋眼牛排12oz）</figcaption>
+        </figure>
+        
+
+<p>而且表面有碳烤香味！番薯也好吃。</p>
+
+  <div class="gallery single">
+
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/12.jpeg"
+         loading="lazy"
+         alt="THE BBQ HOUSE 照片">
+    <figcaption>（是完美的三分熟。）</figcaption>
+  </figure>
+
+</div>
+        
+<p>醬料很像是蘑菇醬但又帶一點酸味，濃厚卻又解膩。唯一不合胃口的是旁邊的彩椒配菜，但單純是我個人不喜歡。</p>
+
+<div class="gallery single">
+
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/11.jpeg"
+         loading="lazy"
+         alt="THE BBQ HOUSE 照片">
+    <figcaption>（貓大胖都說讚）</figcaption>
+  </figure>
+
+
+  <div class="gallery single">
+
+  <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/13.jpeg"
+         loading="lazy"
+         alt="THE BBQ HOUSE 照片">
+    <figcaption>（布朗尼香草冰淇淋）</figcaption>
+  </figure>
+
+       
+<p>布朗尼超級扎實，很好吃，令我驚訝的是不過小小的一塊蛋糕，裡面放的核桃未免也太多！</p>
+</p>我們兩人各吃到好幾顆完整的核桃，佩服老闆用料的扎實，但其實我會希望減少一點核桃的存在感，我想吃更多的布朗尼哈哈。</p>   
+    
+<p>比想像中好吃很多的一家餐廳，從主廚到所有服務生的服務也很親切，之後有機會還會回訪的。</p>
+
+    <figure>
+    <img src="../image/2026-02-20-bbq-house-linkou/03.jpeg"
+         loading="lazy"
+         alt="THE BBQ HOUSE 照片">
+    <figcaption></figcaption>
+  </figure>
+    
+</div>
+
+  
+</div>
+
+        
+      </div>
+
+    </article>
+
+    <a class="back" href="/">← Back to Home</a>
+
+  </div>
+</body>
+</html>
